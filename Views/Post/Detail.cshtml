@@ -1,0 +1,50 @@
+﻿@model Post
+@{
+
+    ViewData["Title"] = Model.Title;
+}
+<style>
+    .content-wrapper {
+        padding: 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+        font-family: sans-serif
+    }
+</style>
+<div class="text-end ">
+    <a class="btn btn-secondary my-2">Edit Post</a>
+    <a class="btn btn-danger mx-2 my-2">Delete Post</a>
+
+</div>
+<div class="content-wrapper">
+    <h1>@Model.Title</h1>
+    <p><span class="badge bg-primary">By:</span>@Model.Author | <span class="badge bg-primary">Published On:</span>
+        @Model.PublishedDate.ToString("MMM, dd, yyyy")</p>
+    <p><span class="badge bg-secondary">Category:</span>@Model.Category?.Name</p>
+    <img src="@Model.FeaturedImagePath" alt="@Model.Title" class="img-fluid" />
+    <hr />
+    <div>
+        @Html.Raw(Model.Content)
+        </div
+        <hr/>
+    @if(Model.Comments.Any())
+    {
+        <div>
+            @foreach(var comment in Model.Comments)
+            {
+                <div class="card mb-2 shadow-sm">
+                    <div class="card-body">
+                    <h5 class="card-title">@comment.UserName</h5>
+                    <p class="card-text text-muted">@comment.CommentDate.ToString("MMM, dd, yyyy")</p>
+                    <p class="card-text">@comment.Content</p>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p class="text-muted">No comments yet.Be the first to comment!</p>
+    }
+
+</div>
