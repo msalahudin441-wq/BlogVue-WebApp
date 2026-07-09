@@ -1,8 +1,8 @@
 ﻿@model Post
 @{
-
     ViewData["Title"] = Model.Title;
 }
+
 <style>
     .content-wrapper {
         padding: 20px;
@@ -11,32 +11,34 @@
         font-family: sans-serif
     }
 </style>
-<div class="text-end ">
-    <a class="btn btn-secondary my-2">Edit Post</a>
-    <a class="btn btn-danger mx-2 my-2">Delete Post</a>
 
+
+<div class="text-end ">
+    <a class="btn btn-secondary my-2" asp-controller="Post" asp-action="Edit" asp-route-id="@Model.Id">Edit Post</a>
+    <a class="btn btn-danger mx-2 my-2" asp-controller="Post" asp-action="Delete" asp-route-id="@Model.Id">Delete Post</a>
 </div>
+
 <div class="content-wrapper">
     <h1>@Model.Title</h1>
-    <p><span class="badge bg-primary">By:</span>@Model.Author | <span class="badge bg-primary">Published On:</span>
-        @Model.PublishedDate.ToString("MMM, dd, yyyy")</p>
+    <p><span class="badge bg-primary">By:</span>@Model.Author | <span class="badge bg-primary">Published On:</span> @Model.PublishedDate.ToString("MMM, dd, yyyy")</p>
     <p><span class="badge bg-secondary">Category:</span>@Model.Category?.Name</p>
     <img src="@Model.FeaturedImagePath" alt="@Model.Title" class="img-fluid" />
     <hr />
     <div>
         @Html.Raw(Model.Content)
-        </div
-        <hr/>
-    @if(Model.Comments.Any())
+    </div>
+    <hr />
+
+    @if (Model.Comments.Any())
     {
-        <div>
-            @foreach(var comment in Model.Comments)
+        <div id="commentsSection">
+            @foreach (var comment in Model.Comments)
             {
                 <div class="card mb-2 shadow-sm">
                     <div class="card-body">
-                    <h5 class="card-title">@comment.UserName</h5>
-                    <p class="card-text text-muted">@comment.CommentDate.ToString("MMM, dd, yyyy")</p>
-                    <p class="card-text">@comment.Content</p>
+                        <h5 class="card-title">@comment.UserName</h5>
+                        <p class="card-text text-muted">@comment.CommentDate.ToString("MMM, dd, yyyy")</p>
+                        <p class="card-text">@comment.Content</p>
                     </div>
                 </div>
             }
@@ -44,7 +46,63 @@
     }
     else
     {
-        <p class="text-muted">No comments yet.Be the first to comment!</p>
+        <div id="commentsSection">
+            <p class="text-muted no-comments">No comments yet. Be the first to comment!</p>
+        </div>
     }
 
+    <h4>Add a Comment</h4>
+    <form id="commentForm">
+        <div class="form-group">
+            <label for="userName">Name</label>
+            <input required class="form-control" id="userName" name="userName" />
+        </div>
+        <div class="form-group">
+            <label for="content">Comment</label>
+            <textarea required class="form-control" id="content" name="content" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary mt-2 p-2 rounded">Submit</button>
+    </form>
 </div>
+
+@section Scripts {
+    <script>
+
+        $(document).ready(function () {
+            $('#commentForm').submit(function (event) {
+                event.preventDefault();
+                var userName = $('#UserName').val();
+                var content = $('#content').val();
+                var postId = @Model.Id;
+
+                $.ajax({
+                    url: '@Url.Action("AddComment", "Post")',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ postId: postId, userName: userName, content: content }),
+                    success: function(response){
+                        // Remove the "No comments yet" text if it exists
+                        // $('.no-comments').remove();
+
+                        $('#commentsSection').append(
+                            `<div class="card mb-2 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title">${response.userName}</h5>
+                                    <p class="card-text text-muted">${response.commentDate}</p>
+                                    <p class="card-text">${response.content}</p>
+                                </div>
+                            </div>`
+                        );
+
+                        // Clear the form fields after submission
+                        $('#userName').val('');
+                        $('#content').val('');
+                    },
+                    error: function(err) {
+                        console.error("Error posting comment:", err);
+                    }
+                }); // Closed AJAX properly here
+            }); // Closed submit function properly here
+        }); // Closed ready function properly here
+    </script>
+}

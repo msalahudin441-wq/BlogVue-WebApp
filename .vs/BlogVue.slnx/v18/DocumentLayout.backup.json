@@ -1,0 +1,156 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Web DEV\\Blogvue\\BlogVue\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{62697DB4-7BCF-490D-6C3A-ACE55133AFE1}|BlogVue.csproj|d:\\web dev\\blogvue\\blogvue\\controllers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62697DB4-7BCF-490D-6C3A-ACE55133AFE1}|BlogVue.csproj|solutionrelative:controllers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62697DB4-7BCF-490D-6C3A-ACE55133AFE1}|BlogVue.csproj|d:\\web dev\\blogvue\\blogvue\\views\\post\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{62697DB4-7BCF-490D-6C3A-ACE55133AFE1}|BlogVue.csproj|solutionrelative:views\\post\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62697DB4-7BCF-490D-6C3A-ACE55133AFE1}|BlogVue.csproj|d:\\web dev\\blogvue\\blogvue\\views\\post\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{62697DB4-7BCF-490D-6C3A-ACE55133AFE1}|BlogVue.csproj|solutionrelative:views\\post\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62697DB4-7BCF-490D-6C3A-ACE55133AFE1}|BlogVue.csproj|d:\\web dev\\blogvue\\blogvue\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62697DB4-7BCF-490D-6C3A-ACE55133AFE1}|BlogVue.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62697DB4-7BCF-490D-6C3A-ACE55133AFE1}|BlogVue.csproj|d:\\web dev\\blogvue\\blogvue\\models\\viewmodels\\editviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62697DB4-7BCF-490D-6C3A-ACE55133AFE1}|BlogVue.csproj|solutionrelative:models\\viewmodels\\editviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62697DB4-7BCF-490D-6C3A-ACE55133AFE1}|BlogVue.csproj|d:\\web dev\\blogvue\\blogvue\\models\\viewmodels\\postviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62697DB4-7BCF-490D-6C3A-ACE55133AFE1}|BlogVue.csproj|solutionrelative:models\\viewmodels\\postviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62697DB4-7BCF-490D-6C3A-ACE55133AFE1}|BlogVue.csproj|d:\\web dev\\blogvue\\blogvue\\views\\post\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{62697DB4-7BCF-490D-6C3A-ACE55133AFE1}|BlogVue.csproj|solutionrelative:views\\post\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62697DB4-7BCF-490D-6C3A-ACE55133AFE1}|BlogVue.csproj|d:\\web dev\\blogvue\\blogvue\\views\\post\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{62697DB4-7BCF-490D-6C3A-ACE55133AFE1}|BlogVue.csproj|solutionrelative:views\\post\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "D:\\Web DEV\\Blogvue\\BlogVue\\Views\\Post\\Delete.cshtml",
+              "RelativeDocumentMoniker": "Views\\Post\\Delete.cshtml",
+              "ToolTip": "D:\\Web DEV\\Blogvue\\BlogVue\\Views\\Post\\Delete.cshtml",
+              "RelativeToolTip": "Views\\Post\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-07-09T06:34:32.838Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Web DEV\\Blogvue\\BlogVue\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Web DEV\\Blogvue\\BlogVue\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAwAAAAAMDMzMzPrvx8AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-09T06:29:09.375Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\Web DEV\\Blogvue\\BlogVue\\Views\\Post\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Post\\Create.cshtml",
+              "ToolTip": "D:\\Web DEV\\Blogvue\\BlogVue\\Views\\Post\\Create.cshtml",
+              "RelativeToolTip": "Views\\Post\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-07-09T04:16:46.56Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\Web DEV\\Blogvue\\BlogVue\\Views\\Post\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Post\\Edit.cshtml",
+              "ToolTip": "D:\\Web DEV\\Blogvue\\BlogVue\\Views\\Post\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Post\\Edit.cshtml",
+              "ViewState": "AgIAABQAAADgYmZmZiYiwBcAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-07-09T04:14:10.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EditViewModel.cs",
+              "DocumentMoniker": "D:\\Web DEV\\Blogvue\\BlogVue\\Models\\ViewModels\\EditViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\ViewModels\\EditViewModel.cs",
+              "ToolTip": "D:\\Web DEV\\Blogvue\\BlogVue\\Models\\ViewModels\\EditViewModel.cs",
+              "RelativeToolTip": "Models\\ViewModels\\EditViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-09T04:04:55.386Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PostController.cs",
+              "DocumentMoniker": "D:\\Web DEV\\Blogvue\\BlogVue\\Controllers\\PostController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PostController.cs",
+              "ToolTip": "D:\\Web DEV\\Blogvue\\BlogVue\\Controllers\\PostController.cs",
+              "RelativeToolTip": "Controllers\\PostController.cs",
+              "ViewState": "AgIAAJwAAACAYmZmZmYKwK4AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-08T18:32:16.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Detail.cshtml",
+              "DocumentMoniker": "D:\\Web DEV\\Blogvue\\BlogVue\\Views\\Post\\Detail.cshtml",
+              "RelativeDocumentMoniker": "Views\\Post\\Detail.cshtml",
+              "ToolTip": "D:\\Web DEV\\Blogvue\\BlogVue\\Views\\Post\\Detail.cshtml",
+              "RelativeToolTip": "Views\\Post\\Detail.cshtml",
+              "ViewState": "AgIAAAEAAAAAyszMzMwnwBEAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-07-08T18:10:06.69Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PostViewModel.cs",
+              "DocumentMoniker": "D:\\Web DEV\\Blogvue\\BlogVue\\Models\\ViewModels\\PostViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\ViewModels\\PostViewModel.cs",
+              "ToolTip": "D:\\Web DEV\\Blogvue\\BlogVue\\Models\\ViewModels\\PostViewModel.cs",
+              "RelativeToolTip": "Models\\ViewModels\\PostViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-08T18:31:52.425Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

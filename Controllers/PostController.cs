@@ -61,20 +61,44 @@ namespace BlogVue.Controllers
 
             return View(postViewModel);
         }
-        [HttpPost]
-        public async Task<IActionResult>Create(PostViewModel postViewModel)
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            var post = await _context.Posts.FindAsync(id);
+            if (post == null)
+            {
+                return NotFound();
+            }
+            var postFromDb = await _context.Posts.FirstOrDefaultAsync(p=>p.Id == id);
+            if(postFromDb == null)
+            {
+                return NotFound();
+            }
+            EditViewModel editViewModel = new EditViewModel
+            {
+                Post = postFromDb,
+                Categories = _context.Categories.Select(c => new SelectListItem
+                {
+                    Value = c.Id.ToString(),
+                    Text = c.Name
+                }).ToList()
+            };
+            return View(editViewModel);
+
+        }
+        public async Task<IActionResult> Create(PostViewModel postViewModel)
         {
             if (ModelState.IsValid)
             {
-                var inputFileExtension= Path.GetExtension(postViewModel.FeaturedImage.FileName).ToLower();
-                bool isAllowed= _allowedExtensions.Contains(inputFileExtension);
+                var inputFileExtension = Path.GetExtension(postViewModel.FeaturedImage.FileName).ToLower();
+                bool isAllowed = _allowedExtensions.Contains(inputFileExtension);
                 if (!isAllowed)
                 {
                     ModelState.AddModelError("", "Invalid Image Format. Allowed Formats are jpg,jpeg and png");
                     return View(postViewModel);
                 }
-              postViewModel.Post.FeaturedImagePath =await UploadFileToFolder(postViewModel.FeaturedImage);
-                 await _context.Posts.AddAsync(postViewModel.Post);
+                postViewModel.Post.FeaturedImagePath = await UploadFileToFolder(postViewModel.FeaturedImage);
+                await _context.Posts.AddAsync(postViewModel.Post);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
@@ -85,6 +109,93 @@ namespace BlogVue.Controllers
             }).ToList();
             return View(postViewModel);
         }
+        [HttpPost]
+        public async Task<IActionResult> Edit(EditViewModel editViewModel)
+        {
+            if(!ModelState.IsValid)
+            {
+               return View(editViewModel);
+            }
+            var postFromDb =  await _context.Posts.AsNoTracking().FirstOrDefaultAsync(p => p.Id == editViewModel.Post.Id);
+            if (postFromDb == null)
+            {
+                return NotFound();
+            }
+            if (editViewModel.FeaturedImage != null)
+            {
+                var inputFileExtension = Path.GetExtension(editViewModel.FeaturedImage.FileName).ToLower();
+                bool isAllowed = _allowedExtensions.Contains(inputFileExtension);
+                if (!isAllowed)
+                {
+                    ModelState.AddModelError("", "Invalid Image Format. Allowed Formats are jpg,jpeg and png");
+                    return View(editViewModel);
+                }
+                var ExistingImagePath = Path.Combine(_webHostEnvironment.WebRootPath, "Images", Path.GetFileName(postFromDb.FeaturedImagePath));
+                if (System.IO.File.Exists(ExistingImagePath))
+                {
+                    System.IO.File.Delete(ExistingImagePath);
+                }
+                editViewModel.Post.FeaturedImagePath = await UploadFileToFolder(editViewModel.FeaturedImage);
+
+            }
+            else
+            {
+                editViewModel.Post.FeaturedImagePath=postFromDb.FeaturedImagePath;
+            }
+            _context.Posts.Update(editViewModel.Post);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+                  
+                
+        }
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var postFromDb= await _context.Posts.FirstOrDefaultAsync(p=> p.Id == id);
+            if(postFromDb == null)
+            {
+                return NotFound();
+            }
+            return View(postFromDb);
+        }
+        [HttpPost]
+
+        public async Task<IActionResult> DeleteConfirm(int id)
+        {
+            var postFromDb = await _context.Posts.FirstOrDefaultAsync(p => p.Id == id);
+            if (string.IsNullOrEmpty(postFromDb.FeaturedImagePath))
+            {
+                var ExistingImagePath = Path.Combine(_webHostEnvironment.WebRootPath, "Images", Path.GetFileName(postFromDb.FeaturedImagePath));
+                if (System.IO.File.Exists(ExistingImagePath))
+                {
+                    System.IO.File.Delete(ExistingImagePath);
+                }
+
+            }
+            _context.Posts.Remove(postFromDb);
+            _context.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+
+        }
+
+        [HttpPost]
+        public JsonResult AddComment([FromBody]Comments comment)
+        {
+            comment.CommentDate = DateTime.Now;
+            _context.Comments.Add(comment);
+            _context.SaveChanges();
+            return Json(
+                new
+                {
+                    username = comment.UserName,
+                    commentDate = comment.CommentDate.ToString("MMM, dd, yyyy"),
+                    content = comment.Content
+                }
+                );
+        }
+        [HttpPost]
+       
 
         private async Task<string> UploadFileToFolder(IFormFile file)
         {
