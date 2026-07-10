@@ -1,0 +1,9 @@
+# IDE settings
+.vs/
+
+# Build outputs
+[Bb]in/
+[Oo]bj/
+
+# User-specific project files
+*.csproj.user
