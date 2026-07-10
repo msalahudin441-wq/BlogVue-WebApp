@@ -5,6 +5,7 @@ using BlogVue.Models;
 using BlogVue.Models.ViewModels;
 using System.Net;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BlogVue.Controllers
 {
@@ -32,6 +33,7 @@ namespace BlogVue.Controllers
             return View(posts);
         }
         [HttpGet]
+       
         public async Task<IActionResult> Detail(int id)
         {
             if(id== null)
@@ -48,6 +50,7 @@ namespace BlogVue.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles ="Admin")]
         public IActionResult Create()
         {
             var postViewModel = new PostViewModel
@@ -62,6 +65,7 @@ namespace BlogVue.Controllers
             return View(postViewModel);
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id)
         {
             var post = await _context.Posts.FindAsync(id);
@@ -86,6 +90,7 @@ namespace BlogVue.Controllers
             return View(editViewModel);
 
         }
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(PostViewModel postViewModel)
         {
             if (ModelState.IsValid)
@@ -110,6 +115,7 @@ namespace BlogVue.Controllers
             return View(postViewModel);
         }
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(EditViewModel editViewModel)
         {
             if(!ModelState.IsValid)
@@ -149,6 +155,7 @@ namespace BlogVue.Controllers
                 
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             var postFromDb= await _context.Posts.FirstOrDefaultAsync(p=> p.Id == id);
@@ -159,6 +166,7 @@ namespace BlogVue.Controllers
             return View(postFromDb);
         }
         [HttpPost]
+        [Authorize(Roles = "Admin")]
 
         public async Task<IActionResult> DeleteConfirm(int id)
         {
@@ -180,6 +188,7 @@ namespace BlogVue.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public JsonResult AddComment([FromBody]Comments comment)
         {
             comment.CommentDate = DateTime.Now;
@@ -221,5 +230,6 @@ namespace BlogVue.Controllers
             }
             return "/images/" + fileName;
         }
+       
     }
 }
