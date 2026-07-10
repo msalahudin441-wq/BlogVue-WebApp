@@ -1,4 +1,5 @@
 using BlogVue.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,23 @@ builder.Services.AddDbContext<ApDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+{
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase=false;
+    options.Password.RequireUppercase=false;
+    options.Password.RequiredLength = 1;
+     
+}
+).AddEntityFrameworkStores<ApDbContext>();
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.ExpireTimeSpan = TimeSpan.FromDays(7);
+    options.SlidingExpiration = true; // for sliding the expire time if user sign in again
+
+}
+);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

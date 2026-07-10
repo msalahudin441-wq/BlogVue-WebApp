@@ -1,9 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using BlogVue.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace BlogVue.Data
 {
-    public class ApDbContext: DbContext
+    public class ApDbContext: IdentityDbContext<IdentityUser>
     {
         public ApDbContext(DbContextOptions<ApDbContext> options) : base(options)
         {

@@ -221,3 +221,4 @@ D:\Web DEV\Blogvue\BlogVue\obj\Debug\net9.0\refint\BlogVue.dll
 D:\Web DEV\Blogvue\BlogVue\obj\Debug\net9.0\BlogVue.pdb
 D:\Web DEV\Blogvue\BlogVue\obj\Debug\net9.0\BlogVue.genruntimeconfig.cache
 D:\Web DEV\Blogvue\BlogVue\obj\Debug\net9.0\ref\BlogVue.dll
+D:\Web DEV\Blogvue\BlogVue\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
